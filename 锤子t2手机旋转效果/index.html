@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        img {
+            width: 615px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="img/000.jpg" alt="">
+    <script>
+        window.onload = function () {
+            function PrefixInteger(num, n) {
+                return (Array(n).join(0) + num).slice(-n);
+            }
+            let img = document.querySelector('img');
+            
+            img.onmousemove=function(e){
+                console.log(e.offsetX);
+                let i=0;
+                i=e.offsetX;
+                
+                //取358的余数，防止超过358存在无图片情况
+                result=i%358;
+                
+                img.setAttribute('src', 'img/' + PrefixInteger(result, 3) + '.jpg');
+            }
+
+//            let i = 0;
+//            let aa = setInterval(function () {
+//                i++;
+//                if (i >= 358) {
+//                    i = 10;
+//                }
+//            }, 30)
+        }
+    </script>
+</body>
+
+</html>

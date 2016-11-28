@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Document</title>
+	<style>
+		.warp {
+			position: relative;
+			margin-bottom: 50px;
+		}
+		
+		input {
+			height: 20px;
+			width: 170px;
+			outline: none;
+			padding: 5px 10px;
+			font-size: 14px;
+			border: solid 1px black;
+		}
+		
+		.a {
+			border: solid 1px aqua;
+		}
+		
+		.span {
+			font-size: 14px;
+			position: absolute;
+			left: 12px;
+			top: 8px;
+			color: #ccc;
+			/*            -webkit-transition: left 0.2s linear;*/
+			-webkit-transition: top 0.2s linear;
+			/*            -webkit-transition: scale 0.2s linear;*/
+			/*                        -webkit-transition: font-size 0.2s linear ;*/
+		}
+		
+		.spana {
+			font-size: 12px;
+			left: 6px;
+			top: -6px;
+			background-color: white;
+			color: aqua;
+			padding: 0 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="warp">
+		<input class="s" type="text">
+		<span class="span">注册码</span>
+	</div>
+	<div class="warp">
+		<input class="s" type="text">
+		<span class="span">手机</span>
+	</div>
+	<div class="warp">
+		<input class="s" type="text">
+		<span class="span">注册码注册码注册码</span>
+	</div>
+	<script>
+		let div = document.querySelector('.warp'),
+			shuru = document.querySelectorAll('.s'),
+			sp = document.querySelectorAll('.span');
+
+		console.log(sp.length);
+		for (let i = 0; i < sp.length; i++) {
+			shuru[i].addEventListener('focus', () => {
+				sp[i].classList.add("spana");
+				shuru[i].classList.add("a");
+			});
+			shuru[i].addEventListener('blur', () => {
+				sp[i].classList.remove("spana");
+				shuru[i].classList.remove("a");
+				if (shuru[i].value != "") {
+					sp[i].style.display = "none"
+				} else {
+					sp[i].style.display = "block"
+				}
+			});
+			sp[i].addEventListener('click', () => {
+				shuru[i].focus();
+				sp[i].classList.add("spana");
+				shuru[i].classList.add("a");
+			})
+		}
+	</script>
+</body>
+
+</html>

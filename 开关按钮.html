@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>模板测试</title>
+    <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+    <style>
+        select,
+        option {
+            apperance: none;
+        }
+        
+        li {
+            list-style: none
+        }
+        
+        #sb {
+            width: 180px;
+            height: 80px;
+            background-color: #363636;
+            border-radius: 40px;
+            position: relative;
+            border: solid 1px black;
+        }
+        
+        .s {
+            width: 60px;
+            height: 60px;
+            background-color: #A0B748;
+            border-radius: 50px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            -webkit-transition: left 0.2s linear;
+            z-index: 2;
+            cursor: pointer
+        }
+        
+        .text {
+            font-size: 45px;
+            display: inline-block;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            -webkit-transition: right 0.2s linear;
+            z-index: 1
+        }
+        
+        .sa {
+            left: 110px;
+        }
+        
+        .texta {
+            right: 90px;
+        }
+        
+        .white {
+            background-color: aliceblue;
+            !important
+        }
+        
+        #sb2 {
+            width: 180px;
+            height: 80px;
+            background-color: #363636;
+            border-radius: 15px;
+            position: relative;
+            border: solid 1px black;
+        }
+        
+        .s2 {
+            width: 60px;
+            height: 80px;
+            background-color: #A0B748;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            position: absolute;
+            /*            top: 10px;*/
+            left: 0px;
+            -webkit-transition: left 0.2s linear;
+            z-index: 2;
+            cursor: pointer;
+        }
+        
+        .fa {
+            position: absolute;
+            /*            color: red;*/
+            z-index: 1;
+            font-size: 70px;
+        }
+        
+        .text2 {
+            color: #A0B748;
+            right: 10px;
+            top: 10px;
+            -webkit-transition: right 0.2s linear;
+        }
+        
+        .s2a {
+            left: 120px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        
+        .text2a {
+            right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="sb">
+        <div class="s"></div>
+        <span class="text">ON</span>
+    </div>
+
+    <div id="sb2">
+        <div class="s2"></div>
+        <span class="fa fa-check text2"></span>
+    </div>
+
+    <select name="" id="">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+    </select>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        let btn2 = document.getElementById('sb2').querySelector('div'),
+            text2 = document.getElementById('sb2').querySelector('span'),
+            box2 = document.getElementById('sb2');
+        btn2.setAttribute('status', "on");
+        btn2.onclick = function () {
+//            box2.classList.toggle('')
+        if (btn2.getAttribute('status') == "on") {
+            btn2.classList.add('s2a');
+            text2.classList.add('text2a','fa-times');
+            btn2.setAttribute('status', "off");
+            text2.classList.add('fa-times');
+            box2.style.backgroundColor = 'aliceblue';
+//            btn2.style.border-bottom-left-radius="0px";
+//            text2.textContent = 'OFF';
+        } else if (btn2.getAttribute('status') == "off") {
+            btn2.classList.remove('s2a');
+            text2.classList.remove('text2a',"fa-times");
+            text2.classList.add('fa-check');
+            btn2.setAttribute('status', "on");
+            box2.style.backgroundColor = '#363636';
+//            text2.textContent = 'ON';
+        }
+        }
+        
+
+        let btn = document.getElementById('sb').querySelector('div'),
+            text = document.getElementById('sb').querySelector('span'),
+            box = document.getElementById('sb');
+        btn.setAttribute('status', "on")
+        btn.onclick = function () {
+            btn.classList.toggle('sa');
+            text.classList.toggle('texta');
+            //            box.classList.toggle('white')
+
+
+            if (btn.getAttribute('status') == "on") {
+                btn.setAttribute('status', "off");
+                text.textContent = 'OFF';
+                box.style.backgroundColor = 'aliceblue';
+            } else if (btn.getAttribute('status') == "off") {
+                btn.setAttribute('status', "on");
+                text.textContent = 'ON';
+                box.style.backgroundColor = '#363636';
+            }
+            //            if(btn.getAttribute('status')=="on"){
+            //                btn.classList.add('sa');
+            //                text.classList.add('texta');
+            //                btn.setAttribute('status',"off");
+            //                text.textContent='OFF';
+            //            }
+            //            else if(btn.getAttribute('status')=="off"){
+            //                btn.classList.remove('sa');
+            //                text.classList.remove('texta');
+            //                btn.setAttribute('status',"on");
+            //                text.textContent='ON';
+            //            }
+        }
+    </script>
+</body>
+
+</html>

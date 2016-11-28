@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        #test {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            margin-top: 200px;
+            margin-left: 200px;
+            box-shadow: 0px 0px 25px #888888;
+            /*            -webkit-transform: skewY(0deg) skewX(45deg);*/
+            /*            -webkit-transform:rotateX(-30deg) rotateY(-30deg) rotateZ(0deg)*/
+            /*            perspective: 2px;*/
+            /*            transform:  rotate(30deg)*/
+            /*            transition: 0.6s linear;*/
+            transition: transform .5s cubic-bezier(.25, .46, .45, .94);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="test">
+        asdasdsa
+    </div>
+
+    <script>
+        let div = document.querySelector('#test');
+        div.onmousemove = function (e) {
+            //            alert()
+            //            div.style.transform='perspective(400px) rotateX('+(-20*(e.offsetX-200)/200)+'deg) rotateY('+(20*(e.offsetY-200)/200)+'deg)';
+            if ((e.offsetX < 200 && e.offsetY < 200) || (e.offsetX > 200 && e.offsetY > 200)) {
+                div.style.transform = 'perspective(400px) rotateX(' + (-5 * (e.offsetX - 200) / 200) + 'deg) rotateY(' + (5 * (e.offsetY - 200) / 200) + 'deg)';
+            }
+//            else if(e.offsetX = 200){
+//                div.style.transform = 'perspective(400px) rotateX(' + (-5 * (e.offsetY - 200) / 200) + 'deg) rotateY(0deg)';
+//            }else if(e.offsetY = 200){
+//                div.style.transform = 'perspective(400px) rotateX(0deg) rotateY(' + (5 * (e.offsetX - 200) / 200) + 'deg)';
+//            }
+            else {
+                div.style.transform = 'perspective(400px) rotateX(' + (5 * (e.offsetX - 200) / 200) + 'deg) rotateY(' + (-5 * (e.offsetY - 200) / 200) + 'deg)';
+            }
+        }
+        div.onmouseout = function (e) {
+            div.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        }
+    </script>
+</body>
+
+</html>
