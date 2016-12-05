@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button{
+            width: 150px;
+            height: 40px;
+            border: none;
+            background-color: red;
+            color: white;
+            padding: 0;
+            position: relative;
+            outline: none
+        }
+        canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.25
+        }
+    </style>
+</head>
+<body>
+    <button data-color="#2f5398">search</button>
+    <!--<canvas width="100px" height="100px"></canvas>-->
+
+    <script>
+        let btn = document.querySelector('button'),
+            canvas,
+            press,
+            color,
+            element,
+            context,
+            centerX,
+            centerY,
+            radius;
+
+        let init = () =>{
+            canvas = document.createElement('canvas');
+            canvas.onclick = press;
+            btn.appendChild(canvas);
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        press = (e) =>{
+            color = e.target.parentElement.dataset.color;
+            element = e.target;
+            context = element.getContext('2d');
+            radius = 0;
+            centerX = event.offsetX;
+            centerY = event.offsetY;
+            context.clearRect(0, 0, element.width, element.height);
+            draw();
+        }
+
+        let draw = () =>{
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+            context.fillStyle = 'rgba(12,123,34,0.5)';
+            context.fill();
+            radius += 3;
+            if (radius < element.width) {
+                setTimeout(draw,17)//原始做法
+
+                //优化做法
+                // requestAnimationFrame(draw)
+            }
+        }
+
+        init()
+
+    </script>
+</body>
+</html>
