@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        p {
+            width: 50px;
+            white-space: normal;
+            word-break: break-all
+        }
+        
+        .qq {
+            width: 50px;
+        }
+        
+        #warp {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0
+        }
+        
+        #pro {
+            height: 3px;
+            position: absolute;
+            background-color: aqua;
+        }
+        
+        .aa {
+            height: 100%;
+            width: 100%;
+            ;
+            background-color: beige
+        }
+    </style>
+</head>
+
+<body>
+	<h1>在非IE下测试通过，IE的解决方法在script的注释中</h1>
+    <div id="warp">
+        <div id="pro"></div>
+    </div>
+    <div class="qq">
+        <p>absoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsolute</p>
+    </div>
+    <script>
+        let pro = document.querySelector('#pro'),
+            p = document.querySelector('.qq');
+
+        window.onscroll = () => {
+            // 请用pageYOffset代替scrollY来保持兼容性，ie下scrollY会报错
+            pro.style.width = (scrollY / (p.scrollHeight - window.innerHeight)) * 100 + '%';
+            console.log((scrollY / (p.scrollHeight - window.innerHeight)) * 100 + '%')
+                //            console.log(document.body.scrollHeight)
+                //            console.log(document.body.clientHeight)
+                //            console.log(document.body.offsetHeight)
+                //            console.log(window.screen.availHeight)
+                //            console.log(window.screenTop)
+                //            console.log(window.innerHeight)
+                //              console.log(document.body.scrollTop)
+
+            //            console.log(screenX)
+            //            console.log(scrollY)
+            //            console.log(p.scrollHeight)
+        }
+
+        // function getInfo() {
+        //     var s = "";
+        //     s += " 网页可见区域宽：" + document.body.clientWidth;
+        //     s += " 网页可见区域高：" + document.body.clientHeight;
+        //     s += " 网页可见区域宽：" + document.body.offsetWidth + " (包括边线和滚动条的宽)";
+        //     s += " 网页可见区域高：" + document.body.offsetHeight + " (包括边线的宽)";
+        //     s += " 网页正文全文宽：" + document.body.scrollWidth;
+        //     s += " 网页正文全文高：" + document.body.scrollHeight;
+        //     s += " 网页被卷去的高(ff)：" + document.body.scrollTop;
+        //     s += " 网页被卷去的高(ie)：" + document.documentElement.scrollTop;
+        //     s += " 网页被卷去的左：" + document.body.scrollLeft;
+        //     s += " 网页正文部分上：" + window.screenTop;
+        //     s += " 网页正文部分左：" + window.screenLeft;
+        //     s += " 屏幕分辨率的高：" + window.screen.height;
+        //     s += " 屏幕分辨率的宽：" + window.screen.width;
+        //     s += " 屏幕可用工作区高度：" + window.screen.availHeight;
+        //     s += " 屏幕可用工作区宽度：" + window.screen.availWidth;
+        //     s += " 屏幕可用工作区宽度：" + window.screen.availWidth;
+        //     s += " 你的屏幕设置是 " + window.screen.colorDepth + " 位彩色";
+        //     s += " 你的屏幕设置 " + window.screen.deviceXDPI + " 像素/英寸";
+        //     alert(s);
+        // }
+        // getInfo();
+    </script>
+</body>
+
+</html>
