@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">asdajsdh</div>
+    <p>insertAdjacentHTML的第二个参数是是要被解析为HTML或XML,并插入到DOM树中的字符串。像最后一个插入就不能被解析</p>
+    <p><a href="http://www.mmxiaowu.com/article/58481d53d4352863efb55443">林岑影</a></p>
+    <script>
+        let div = document.querySelector('#app');
+        let span = document.createElement('span');
+        span.textContent = '这是插入值';
+        
+        div.insertAdjacentHTML('beforeBegin','这是插入值1')
+        div.insertAdjacentHTML('afterBegin','这是插入值2')
+        div.insertAdjacentHTML('beforeEnd','这是插入值3')
+        div.insertAdjacentHTML('afterEnd','这是插入值4')
+        div.insertAdjacentHTML('afterEnd',span)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        a {
+            color: black;
+            background-color: white;
+            text-decoration: none
+        }
+        
+        #nav {
+            width: 400px;
+            position: fixed;
+            top: 0;
+            left: 200px;
+        }
+        
+        #a1,
+        #a2,
+        #a3,
+        #a4,
+        #a5 {
+            width: 100px;
+            height: 600px;
+        }
+        
+        #a1 {
+            background-color: aqua
+        }
+        
+        #a2 {
+            background-color: red
+        }
+        
+        #a3 {
+            background-color: yellow
+        }
+        
+        #a4 {
+            background-color: blue
+        }
+        
+        #a5 {
+            background-color: green
+        }
+        
+        .c {
+            color: white;
+            background-color: black;
+            transition: ease 0.8s
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <a id="a11" href="#a1" class="c">书籍目录</a>
+        <a id="a22" href="#a2">作品试读</a>
+        <a id="a33" href="#a3">购买须知</a>
+        <a id="a44" href="#a4">注意事项</a>
+        <a id="a55" href="#a5">用户点评</a>
+    </div>
+    <br />
+    <br /> 页面结构如下：
+    <div id="a1">1</div>
+    <div id="a2">2</div>
+    <div id="a3">3</div>
+    <div id="a4">4</div>
+    <div id="a5">5</div>
+
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                //为页面添加页面滚动监听事件
+                var wst = $(window).scrollTop() //滚动条距离顶端值
+                let as=document.querySelectorAll('a');
+                let b=[...as];
+
+                for (let i = 1; i < as.length+1; i++) { //加循环
+                    if ($("#a" + i).offset().top <= wst) { //判断滚动条位置
+                        $('#nav a').removeClass("c"); //清除c类
+                        $("#a" + i + i).addClass("c"); //给当前导航加c类
+                    }
+                }
+            })
+            $('#nav a').click(function () {
+                let id = $(this).attr('href');
+                $('body,html').stop(true, false).animate({
+                    'scrollTop': $('' + id + '').offset().top
+                }, 500)
+                $('#nav a').removeClass("c");
+                $(this).addClass("c");
+            });
+        });
+    </script>
+</body>
+
+</html>
