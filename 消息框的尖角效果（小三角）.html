@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 250px;
+            height: 250px;
+            border: solid 1px black
+        }
+        
+        .one {
+            margin: 30px 0 0 30px;
+            border: solid 1px black;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background: #FFFFFF;
+            border: 1px solid #F0F0F0;
+            box-shadow: 0 1px 4px 0 rgba(33, 184, 143, 0.29);
+        }
+        
+        .one span {
+            display: block;
+            border-color: red white white white;
+            border-style: solid;
+            border-width: 10px;
+            width: 0;
+            height: 0;
+            position: absolute;
+            bottom: -20px;
+            left: 42px;
+            background: #FFFFFF;
+            box-shadow: 0 1px 4px 0 rgba(33, 184, 143, 0.29);
+        }
+        
+        .two {
+            margin: 30px 0 0 30px;
+            border: solid 1px black;
+            width: 133px;
+            height: 144px;
+            position: relative;
+            background: #FFFFFF;
+            border: 1px solid #F0F0F0;
+            box-shadow: 0 1px 4px 0 rgba(33, 184, 143, 0.29);
+            z-index: 10
+        }
+        
+        .in {
+            width: 14.14px;
+            height: 14.14px;
+            position: absolute;
+            transform: rotate(45deg);
+            background: #FFFFFF;
+            border: 1px solid #F0F0F0;
+            box-shadow: 0 1px 4px 0 rgba(33, 184, 143, 0.29);
+            bottom: -8px;
+            left: 60px;
+            z-index: 20
+        }
+        
+        img {
+            width: 115px;
+            height: 79px;
+            margin: 10px auto
+        }
+        
+        .back {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            position: relative;
+            z-index: 26;
+            text-align: center
+        }
+        span{
+            display: block;
+            font-size: 14px;
+            color: #666;
+            line-height: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <p>方法一是用宽高为零，使用border的宽度的方法</p>
+    <p>方法二是用rotate的方法，再使用一个div去遮盖的方法</p>
+    <p>还有一种是使用html字符的方式，以后再进行补充</p>
+    <div class="wrap">
+        <div class="one">
+            <span></span>
+        </div>
+
+    </div>
+    <div class="wrap">
+        <div class="two">
+            <div class="back">
+                <img src="" alt="">
+                <span>微信／支付宝</span>
+                <span>扫一扫购买</span>
+            </div>
+            <div class="in"></div>
+        </div>
+    </div>
+</body>
+
+</html>
