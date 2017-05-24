@@ -51,6 +51,7 @@
         <p>absoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsoluteabsolute</p>
     </div>
     <script>
+    	// 公司详情页，加创建时间 下在改为查看，联系信心没有的，都不显示，投资没有的也不显示  多产品的修改列格式公司配括号加产品，工商信息加判断
         let pro = document.querySelector('#pro'),
             p = document.querySelector('.qq');
 
@@ -58,17 +59,18 @@
             // 请用pageYOffset代替scrollY来保持兼容性，ie下scrollY会报错
             pro.style.width = (scrollY / (p.scrollHeight - window.innerHeight)) * 100 + '%';
             console.log((scrollY / (p.scrollHeight - window.innerHeight)) * 100 + '%')
-                //            console.log(document.body.scrollHeight)
-                //            console.log(document.body.clientHeight)
-                //            console.log(document.body.offsetHeight)
-                //            console.log(window.screen.availHeight)
-                //            console.log(window.screenTop)
-                //            console.log(window.innerHeight)
-                //              console.log(document.body.scrollTop)
+                           // console.log(document.body.scrollHeight)
+                           // console.log(document.body.clientHeight)
+                           // console.log(document.body.offsetHeight)
+                           // console.log(window.screen.availHeight)
+                           console.log(window.pageYOffset)
+                           
+                       //     console.log(window.innerHeight)
+                       //       console.log(document.body.scrollTop)
 
-            //            console.log(screenX)
-            //            console.log(scrollY)
-            //            console.log(p.scrollHeight)
+                       // console.log(screenX)
+                       // console.log(scrollY)
+                       // console.log(p.scrollHeight)
         }
 
         // function getInfo() {

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .app {
+      position: relative
+    }
+
+    .inner {
+      display: inline-block;
+      border: 1px solid black;
+      width: auto;
+      box-sizing: border-box;
+    }
+
+    .slide {
+      display: block;
+      height: 2px;
+      width: 30px;
+      background-color: red;
+      position: absolute;
+      top: 21px;
+      left: 0;
+      transition: all ease 0.5s
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="inner">111</div><!--
+    --><div class="inner">2qweqwe22</div><!--
+    --><div class="inner">33qasdasdasdasdwe3</div><!--
+    --><div class="inner">44qwe4</div><!--
+    --><div class="inner">55asdasdasd5</div>
+    <span class="slide"></span>
+  </div>
+  <script>
+    let slide = document.querySelector('.slide');
+    let app = document.querySelectorAll('.inner');
+    app = Array.prototype.slice.call(app)
+    app.map((x, i) => {
+      x.onmouseover = (e) => {
+        let divWidth = e.currentTarget.offsetWidth
+        slide.style.width = divWidth + 'px'
+        slide.style.left = e.currentTarget.offsetLeft + 'px'
+      }
+    })
+  </script>
+</body>
+
+</html>
